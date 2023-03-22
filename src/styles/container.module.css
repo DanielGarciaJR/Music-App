@@ -1,0 +1,119 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "header header header header"
+                         "searchBar searchBar searchBar searchBar"
+                         "mainContainer mainContainer mainContainer mainContainer";
+    
+}
+
+.header{
+    grid-area: header;
+    
+    margin-bottom: 2rem;
+    height: 2.2rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    font-size: 20px;
+    color: #fff;
+    background-color: #3d2d2db3;
+}
+
+.searchBar{
+    grid-area: searchBar;
+    /*background-color: aquamarine;*/
+}
+
+.mainContainer{
+    grid-area: mainContainer;
+
+    background-color: rgba(26, 109, 165, 0.178);
+    border-radius: 10px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 140px;
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color:rebeccapurple; 
+    display: block; 
+    text-align: center;
+
+    margin-left: 2rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    width: 30%;
+    height: 100px;
+}
+
+.card h3{
+    text-align: center;
+}
+.card img{
+    display: inline-block;
+}
+
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+form input{
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    margin-top: 1.5rem;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #757575;
+    
+}
+input:focus{ 
+    outline:none;
+ }
+
+ button{
+    width:2.5rem;
+    height: 2.4rem;
+    margin-top:1.7rem;
+    margin-left: 1.3rem;
+ }
+
+
+
+
+
+
+
+
+/*Responsive Desing*/
+@media screen and (max-width: 1024px) {
+    .container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "header header header header"
+                             "searchBar searchBar searchBar searchBar"
+                             "mainContainer mainContainer mainContainer mainContainer";
+        
+    }
+
+    .searchBar{
+        grid-area: searchBar;
+    }
+    
+    .mainContainer{
+        grid-area: mainContainer;
+    
+        background-color: rgb(26, 110, 165);
+        border-radius: 10px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    
+    }
+  }
