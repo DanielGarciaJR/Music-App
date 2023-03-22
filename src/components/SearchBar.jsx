@@ -3,6 +3,7 @@ import style from '../styles/container.module.css';
 import { GoSearch } from "react-icons/go";
 import { baseUrl } from '../../api/api';
 import { helpHttp } from '../helpers/helpHttp'; 
+import MainContainer from './MainContainer';
 
 
 export default function SearchBar(){
@@ -12,7 +13,7 @@ export default function SearchBar(){
     const [input, setInput] = useState({search: ''});
 
     let api = helpHttp();
-    let url = baseUrl + `/search?term=${input.search}&media=music&limit=25`;
+    let url = baseUrl + `/search?term=${input.search}&media=music&limit=24`;
 
 
     //funtions
@@ -34,6 +35,8 @@ export default function SearchBar(){
                 <input type='text' placeholder='Search' name='search' value={input.search} onChange={handleChange} ></input>
                 <button type='submit'><GoSearch/></button> 
             </form>
+
+            <MainContainer displayData={data}/>
         </div>
     );
 }

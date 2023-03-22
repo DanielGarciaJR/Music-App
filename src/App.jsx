@@ -13,7 +13,7 @@ function App() {
       <div className={style.container}>
        <Header/>
        <SearchBar/>
-       <MainContainer/>
+      
       </div>
     </div>
   )

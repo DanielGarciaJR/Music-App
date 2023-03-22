@@ -46,7 +46,7 @@
     margin-right: 1rem;
     margin-bottom: 2rem;
     width: 30%;
-    height: 100px;
+    height: 300px;
 }
 
 .card h3{
@@ -54,6 +54,7 @@
 }
 .card img{
     display: inline-block;
+    width: 30%;
 }
 
 
