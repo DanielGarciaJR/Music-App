@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React from "react";
 import style from '../styles/container.module.css';
 
 
@@ -12,4 +12,5 @@ export default function Card({name,cover,desc,artist,audio}){
             <audio src={audio} controls></audio>
         </div>
     );
+
 }

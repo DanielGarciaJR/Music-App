@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
-import style from '../styles/container.module.css';
 import { GoSearch } from "react-icons/go";
 import { baseUrl } from '../../api/api';
 import { helpHttp } from '../helpers/helpHttp'; 
 import MainContainer from './MainContainer';
+import style from '../styles/container.module.css';
 
 
 export default function SearchBar(){
@@ -11,9 +11,10 @@ export default function SearchBar(){
     //state
     const [data,setData] = useState([]);
     const [input, setInput] = useState({search: ''});
+    const [isLoading, setIsLoading] = useState(false);
 
     let api = helpHttp();
-    let url = baseUrl + `/search?term=${input.search}&media=music&limit=24`;
+    let url = baseUrl + `/search?term=${input.search}&media=music&limit=25`;
 
 
     //funtions
@@ -21,13 +22,19 @@ export default function SearchBar(){
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        api.get(url).then((res) => {
-            console.log(res);
-            setData(res.results);
-        })
-    }
+        setIsLoading(true);
 
+        if(!input.search){
+            alert('WARNING: Search bar cannot be empty');
+            setIsLoading(false);
+        }else{
+            api.get(url).then((res) => {
+                setData(res.results);   
+                setInput({search:''});
+                setIsLoading(false);    
+            });
+        }
+    }
 
     return(
         <div className={style.searchBar}>
@@ -36,7 +43,7 @@ export default function SearchBar(){
                 <button type='submit'><GoSearch/></button> 
             </form>
 
-            <MainContainer displayData={data}/>
+            <MainContainer displayData={data} loading={isLoading}/>
         </div>
     );
 }
